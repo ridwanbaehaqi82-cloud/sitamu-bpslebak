@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Datang - SITAMU BPS Lebak</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* KUNCI UTAMA: Mencegah Scroll dengan mengunci tinggi layar */
+        html, body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            height: 100vh;
+            max-height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            z-index: 0;
+        }
+
+        /* Latar Belakang Pendaran (Blobs) */
+        .blob-left {
+            position: absolute;
+            left: -10%;
+            top: 20%;
+            width: 400px;
+            height: 400px;
+            background: rgba(243, 112, 33, 0.15);
+            filter: blur(100px);
+            border-radius: 50%;
+            z-index: -1;
+        }
+        .blob-right {
+            position: absolute;
+            right: -5%;
+            bottom: 5%;
+            width: 500px;
+            height: 500px;
+            background: rgba(243, 112, 33, 0.15);
+            filter: blur(120px);
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        /* Bagian Header (Navbar) */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            background: rgba(255, 255, 255, 0.9);
+            border-bottom: 1px solid #f0f0f0;
+            z-index: 10;
+            flex-shrink: 0;
+        }
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .app-icon {
+            background-color: #F37021;
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            box-shadow: 0 4px 10px rgba(243, 112, 33, 0.3);
+        }
+        .app-title-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .app-title {
+            font-weight: 800;
+            color: #333;
+            font-size: 16px;
+            line-height: 1;
+            letter-spacing: 0.5px;
+        }
+        .app-subtitle {
+            font-size: 9px;
+            color: #F37021;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-top: 3px;
+        }
+        .header-right {
+            background-color: #FFF9F5;
+            border: 1px solid #FDE4D0;
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 11px;
+            font-weight: 600;
+            color: #666;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .dot {
+            width: 7px;
+            height: 7px;
+            background-color: #00D26A;
+            border-radius: 50%;
+            box-shadow: 0 0 5px rgba(0, 210, 106, 0.5);
+        }
+
+        /* Konten Utama Tengah */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 10px 20px;
+            z-index: 10;
+            overflow: hidden;
+        }
+        .bps-logo {
+            width: 130px;
+            margin-bottom: 15px;
+        }
+        h1 {
+            color: #0085FF;
+            font-size: 34px;
+            font-weight: 800;
+            margin: 0 0 25px 0;
+            line-height: 1.2;
+            max-width: 600px;
+        }
+
+        /* Tombol Mulai */
+        .btn-mulai {
+            background-color: #F37021;
+            color: white;
+            text-decoration: none;
+            padding: 16px 45px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 17px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 8px 20px rgba(243, 112, 33, 0.35);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .btn-mulai:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(243, 112, 33, 0.45);
+        }
+
+        /* Bagian Footer */
+        .footer {
+            text-align: center;
+            padding: 15px 20px;
+            font-size: 11px;
+            color: #999;
+            line-height: 1.6;
+            z-index: 10;
+            flex-shrink: 0;
+            border-top: 1px solid #f9f9f9;
+        }
+
+        /* Responsif untuk HP / Layar Kecil */
+        @media (max-width: 600px) {
+            h1 { font-size: 26px; margin-bottom: 20px; }
+            .header { padding: 12px 20px; }
+            .header-right { display: none; }
+            .bps-logo { width: 110px; margin-bottom: 10px; }
+            .btn-mulai { padding: 14px 35px; font-size: 16px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Latar Belakang Pendaran -->
+    <div class="blob-left"></div>
+    <div class="blob-right"></div>
+
+    <!-- Header / Navbar -->
+    <div class="header">
+        <div class="header-left">
+            <div class="app-icon">📖</div>
+            <div class="app-title-container">
+                <span class="app-title">SITAMU</span>
+                <span class="app-subtitle">SISTEM INFORMASI BUKU TAMU</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <span class="dot"></span>
+            <span id="liveClock">00:00 WIB</span>
+        </div>
+    </div>
+
+    <!-- Konten Tengah -->
+    <div class="main-content">
+        <!-- Panggil Logo dari folder static -->
+        <img src="{{ url_for('static', filename='img/logobpslebak.png') }}" alt="Logo BPS" class="bps-logo">
+        
+        <h1>Selamat Datang di BPS<br>Kabupaten Lebak</h1>
+        
+        <a href="/isi-form" class="btn-mulai">
+            <span>📝</span> Isi Buku Tamu &rarr;
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        kunjungi website lebakkab.bps.go.id<br>
+        Jl. Jendral Sudirman No.Km 3, Narimbang Mulia, Kec. Rangkasbitung, Kabupaten Lebak, Banten
+    </div>
+
+    <!-- Script Jam Digital -->
+    <script>
+        function updateClock() {
+            const now = new Date();
+            let hours = now.getHours().toString().padStart(2, '0');
+            let minutes = now.getMinutes().toString().padStart(2, '0');
+            document.getElementById('liveClock').textContent = hours + ':' + minutes + ' WIB';
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+</body>
+</html>
